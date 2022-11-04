@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./Assets/css/style.css" />
   <title>07-Project-1</title>
 </head>
+
 <body>
-  <section>
+  <header>
     <h1>Welcome to Giphtionary</h1>
-  </section>
-  <div id="container">
-    <section class="input-wrapper-2">
-      <input type="text" placeholder="Search!"></input>
-    </section>
-    
-  </div>
-  <script src="./Assets/js/script.js"></script>
-</main>
+  </header>
+
+  <main>
+    <div>
+      <form class="input-wrapper">
+        <input type="text" placeholder="Type a word!" id="js-word-input"></input>
+        <button id="js-search-word">Search</button>
+      </form>
+
+      <section>
+        <div class=“word-definition”> Word definition </div>
+        <div> Search History </div>
+
+      </section>
+
+      <section class="container">
+        <!--  left giphy -->
+        <div class="left” id=“giff-display”>
+
+      </div>
+      <!-- right giphy -->
+      <div class=" right" id=“giff-display”>
+
+        </div>
+      </section>
+
+    </div>
+
+    <script src="./Assets/js/script.js"></script>
+  </main>
 </body>
+
 </html>
