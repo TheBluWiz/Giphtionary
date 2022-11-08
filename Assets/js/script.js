@@ -41,5 +41,9 @@ function getAPI(requestUrl) {
     });
 }
 
-getAPI (meriamWebsterURL)
-getAPI(giphyURL)
+submitScoreEl.addEventListener("click", function (event) {
+  event.preventDefault();
+  searchedWord = wordInputEl.value
+  getAPI(meriamWebsterURL)
+  getAPI(giphyURL)
+});
