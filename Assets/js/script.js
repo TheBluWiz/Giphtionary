@@ -1,11 +1,22 @@
 var searchedWord = "development";
 var definitionArray = "";
 var giphArray = [];
+let wordInputEl = document.getElementById("js-word-input");
+let wordSearchButton = document.getElementById("js-search-word");
+let wordDefinition = document.getElementById("word-definiton");
+let giphDisplayEl = document.getElementById("giphs");
 
 var meriamWebsterURL = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${searchedWord}?key=35209bec-5678-4beb-85bc-14642a260055`;
 console.log(meriamWebsterURL)
 
 var giphyURL = `https://api.giphy.com/v1/gifs/search?api_key=C46PLya5FW7iVdgTbVrt2tvX26ZgIo8w&q=${searchedWord}&limit=3&offset=0&rating=g&lang=en`
+
+// link for search history 
+function getWord(event) {
+  event.preventDefault();
+  searchedWord = wordInputEl.textContent
+}
+wordSearchButton.addEventListener("click", getWord);
 
 function getAPI(requestUrl) {
   fetch(requestUrl)
