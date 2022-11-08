@@ -15,24 +15,40 @@
   </header>
 
   <main>
-    
     <div>
 
-      <form class="input-wrapper">
-        <input type="text" placeholder="Type a word!" id="js-word-input"></input>
-        <button id="js-search-word">Search</button>
+      <form id="form">
+        <input type="search" placeholder="Type a word!" class="search-field" id="js-word-input"
+          aria-label="Search"></input>
+        <button type="submit" class="search-button" id="js-search-word"><img
+            src="./Assets/Images/search-button.png"></button>
       </form>
-
-      <div id=“word-definition”> Word definition </div>
-
-      <section class="container" id="giphs"></section>
-       <div class=“cards”>
-        <section class="container"></section>
-       </div>
 
     </div>
 
-    <div>Search History</div>
+
+    <section id=“word-definition”>
+      <h3>Word definition</h3>
+      <!-- Giphs here -->
+      <div class="giph-list ">it 
+        <div class="card card-padding">
+          <div>
+            <img src="https://media3.giphy.com/media/wgRxx8SKrwPOPSrITN/giphy360p.mp4?cid=ecf05e47i9gdys2xmjzzhtk8pjfq48as969ytxbjqfxm6rvg&rid=giphy360p.mp4&ct=v" id="giphs">
+          </div>
+        </div>
+
+      <div class="card card-padding">
+        <div>
+          <img src="https://media3.giphy.com/media/wgRxx8SKrwPOPSrITN/giphy360p.mp4?cid=ecf05e47i9gdys2xmjzzhtk8pjfq48as969ytxbjqfxm6rvg&rid=giphy360p.mp4&ct=v" id="giphs">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div>
+        <h3>Search History </h3>
+      </div>
+    </section>
 
     <script src="./Assets/js/script.js"></script>
 
