@@ -10,29 +10,35 @@
 </head>
 
 <body>
-  <header>
+  <!-- <header>
     <h1>Welcome to Giphtionary</h1>
-  </header>
+  </header> -->
 
   <main>
     
-    <div>
+    <!-- Search Modal -->
+    <section class="modal hidden">
+      <div class="flex">
+        <img src="user.png" width="50px" height="50px" alt="user" />
+        <button class="btn-close">⨉</button>
+      </div>
+      <div>
+        <h3>Welcome to Giphtionary!</h3>
+        <p>
+          Type in any word to get it's definition and it's giph.
+        </p>
+      </div>
 
-      <form class="input-wrapper">
-        <input type="text" placeholder="Type a word!" id="js-word-input"></input>
-        <button id="js-search-word">Search</button>
-      </form>
+      <input type="search" id="search modal" placeholder="search word" />
+      <button class="btn">Submit</button>
+    </section>
 
-      <div id=“word-definition”> Word definition </div>
+    <div class="overlay hidden"></div>
+    <button class="btn btn-open">Fun Starts Here!</button>
 
-      <section class="container" id="giphs"></section>
-       <div class=“cards”>
-        <section class="container"></section>
-       </div>
 
-    </div>
 
-    <div>Search History</div>
+    <!-- <div>Search History</div> -->
 
     <script src="./Assets/js/script.js"></script>
 

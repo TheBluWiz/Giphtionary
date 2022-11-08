@@ -1,13 +1,24 @@
-body {
-  font-family: serif;
-  font-size: 16px;
-  line-height: 1;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
-.container {
+body {
+  
+  /* Added by Carrie */
   display: flex;
-  margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #222;
+  position: relative;
+  min-height: 100vh;
 }
+
+
 
 header {
   background-color: white;
@@ -20,46 +31,88 @@ header {
   margin-right: -8px;
 }
 
-.input-wrapper {
-  width: 100%;
+
+/* Search Modal */
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 450px;
+  padding: 1.3rem;
+  min-height: 250px;
+  position: absolute;
+  top: 20%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  z-index: 2;
 }
 
-input {
-  box-sizing: border-box;
-  padding: 10px;
-  margin-top: 10px;
-  width: 100%;
+.modal .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.modal input {
+  padding: 0.7rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.modal p {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0.4rem 0 0.2rem;
+}
+
+
 
 button {
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  font-weight: 700;
   background-color: lightseagreen;
   color: white;
-  border: none;
-  display: block;
-  padding: 10px;
-  margin-top: 10px;
-  align-items: center;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.btn-open {
+  position: absolute;
+  bottom: 150px;
+}
+
+.btn-close {
+  transform: translate(10px, -20px);
+  padding: 0.5rem 0.7rem;
+  background: #eee;
+  border-radius: 50%;
+}
+
+/* Search Modal Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1;
 }
 
-.left {
-  border: solid black;
-  border-radius: 5px;
-  /* background-color: rgba(255, 255, 255, 0.8); */
-  width: 50%;
-  padding: 10px;
-  margin-left: 40px;
-  margin-top: 10px;
-  margin-right: 5px;
-}
-
-.right {
-  border: solid black;
-  border-radius: 5px;
-  /* background-color: rgba(255, 255, 255, 0.8); */
-  width: 50%;
-  padding: 10px;
-  margin-right: 40px;
-  margin-top: 10px;
-  margin-left: 5px;
+.hidden {
+  display: none;
 }

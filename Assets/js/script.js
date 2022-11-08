@@ -1,10 +1,20 @@
 var searchedWord = "development";
 var definitionArray = "";
 var giphArray = [];
-let wordInputEl = document.getElementById("js-word-input");
+
+// Search Modal Selectors
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const openModalBtn = document.querySelector(".btn-open");
+const closeModalBtn = document.querySelector(".btn-close");
+
+
+// let wordInputEl = document.getElementById("js-word-input");
 let wordSearchButton = document.getElementById("js-search-word");
-let wordDefinition = document.getElementById("word-definiton");
-let giphDisplayEl = document.getElementById("giphs");
+// let wordDefinition = document.getElementById("word-definiton");
+// let giphDisplayEl = document.getElementById("giphs");
+
+
 
 var meriamWebsterURL = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${searchedWord}?key=35209bec-5678-4beb-85bc-14642a260055`;
 console.log(meriamWebsterURL)
@@ -16,7 +26,7 @@ function getWord(event) {
   event.preventDefault();
   searchedWord = wordInputEl.textContent
 }
-wordSearchButton.addEventListener("click", getWord);
+// wordSearchButton.addEventListener("click", getWord);
 
 function getAPI(requestUrl) {
   fetch(requestUrl)
@@ -43,3 +53,30 @@ function getAPI(requestUrl) {
 
 getAPI (meriamWebsterURL)
 getAPI(giphyURL)
+
+
+// Opens Modal
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+openModalBtn.addEventListener("click", openModal);
+
+
+// Close Modal
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+closeModalBtn.addEventListener("click", closeModal);
+
+overlay.addEventListener("click", closeModal);
+
+// Close Modal on Key Press
+// document.addEventListener("keydown");
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    modalClose();
+  }
+});
+
