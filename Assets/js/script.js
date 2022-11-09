@@ -1,7 +1,16 @@
 var searchedWord = "development";
 var definitionArray = "";
 var giphArray = [];
-let wordInputEl = document.getElementById("js-word-input");
+
+// Search Modal Selectors
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const openModalBtn = document.querySelector(".btn-open");
+const closeModalBtn = document.querySelector(".btn-close");
+const searchHistoryBtn = document.querySelector("#searchHistoryBtn");
+
+
+// let wordInputEl = document.getElementById("js-word-input");
 let wordSearchButton = document.getElementById("js-search-word");
 let wordDefinition = document.getElementById("word-definition");
 let giphDisplayEl = document.getElementById("giphs");
@@ -22,7 +31,7 @@ function getWord(event) {
   event.preventDefault();
   searchedWord = wordInputEl.textContent
 }
-wordSearchButton.addEventListener("click", getWord);
+// wordSearchButton.addEventListener("click", getWord);
 
 function getAPI(requestUrl) {
   fetch(requestUrl)
@@ -63,3 +72,39 @@ wordSearchButton.addEventListener("click", function (event) {
   getAPI(meriamWebsterURL())
   getAPI(giphyURL())
 });
+getAPI (meriamWebsterURL)
+getAPI(giphyURL)
+
+
+// Opens Modal
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+openModalBtn.addEventListener("click", openModal);
+
+
+// Close Modal
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+closeModalBtn.addEventListener("click", closeModal);
+
+overlay.addEventListener("click", closeModal);
+
+// Close Modal on Key Press
+// document.addEventListener("keydown");
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    modalClose();
+  }
+});
+
+// Opens History Modal
+// const openHistoryModal = function () {
+//   modal.classList.remove("hidden");
+//   overlay.classList.remove("hidden");
+// };
+// searchHistoryBtn.addEventListener("click", openModal);
+
