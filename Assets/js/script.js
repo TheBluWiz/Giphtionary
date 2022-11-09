@@ -10,17 +10,25 @@ const closeModalBtn = document.querySelector(".btn-close");
 const searchHistoryBtn = document.querySelector("#searchHistoryBtn");
 
 
-// let wordInputEl = document.getElementById("js-word-input");
-let wordSearchButton = document.getElementById("js-search-word");
-// let wordDefinition = document.getElementById("word-definiton");
-// let giphDisplayEl = document.getElementById("giphs");
+let wordInputEl = document.getElementById("search modal");
+let wordSearchButton = document.getElementById("searchBtn");
+let wordDefinition = document.getElementById("word-definition");
+let giphDisplayEl = document.getElementById("giphs");
 
+let meriamWebsterURL;
+let giphyURL;
 
+function getMeriamWebsterURL() {
+  meriamWebsterURL = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${searchedWord}?key=35209bec-5678-4beb-85bc-14642a260055`;
+  getAPI(meriamWebsterURL)
+  return meriamWebsterURL
+}
 
-var meriamWebsterURL = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${searchedWord}?key=35209bec-5678-4beb-85bc-14642a260055`;
-console.log(meriamWebsterURL)
-
-var giphyURL = `https://api.giphy.com/v1/gifs/search?api_key=C46PLya5FW7iVdgTbVrt2tvX26ZgIo8w&q=${searchedWord}&limit=3&offset=0&rating=g&lang=en`
+function getGiphyURL() {
+  giphyURL = `https://api.giphy.com/v1/gifs/search?api_key=C46PLya5FW7iVdgTbVrt2tvX26ZgIo8w&q=${searchedWord}&limit=3&offset=0&rating=g&lang=en`
+  getAPI(giphyURL)
+  return giphyURL
+}
 
 // link for search history 
 function getWord(event) {
@@ -32,7 +40,6 @@ function getWord(event) {
 function getAPI(requestUrl) {
   fetch(requestUrl)
     .then(function (response) {
-      console.log(response.status);
       if (response.status === 200) {
         console.log("Yay")
       } else {
@@ -44,17 +51,32 @@ function getAPI(requestUrl) {
       if (requestUrl === meriamWebsterURL) {
         definitionArray = data[0].shortdef
         console.log(definitionArray)
+        console.log("Definitions sent to DOM")
+        for (let i = 0; i < definitionArray; i++) {
+          let definition = document.createElement("p")
+          definition.textContent = definitionArray[i]
+          wordDefinition.appendChild(definition)
+        }
       }
       if (requestUrl === giphyURL) {
+        console.log("Gifs sent to DOM")
         giphArray = data.data;
         console.log(giphArray)
+        for (let i = 0; i < giphArray; i++) {
+          let giph = document.createElement("iframe");
+          giph.src = giphArray[i].url;
+          giphDisplayEl.appendChild(giph)
+        }
       }
     });
 }
 
-getAPI (meriamWebsterURL)
-getAPI(giphyURL)
-
+wordSearchButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  searchedWord = wordInputEl.value
+  getMeriamWebsterURL()
+  getGiphyURL()
+});
 
 // Opens Modal
 const openModal = function () {
