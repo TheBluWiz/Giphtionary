@@ -7,6 +7,7 @@ const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const openModalBtn = document.querySelector(".btn-open");
 const closeModalBtn = document.querySelector(".btn-close");
+const searchHistoryBtn = document.querySelector("#searchHistoryBtn");
 
 
 // let wordInputEl = document.getElementById("js-word-input");
@@ -79,4 +80,11 @@ document.addEventListener("keydown", function (e) {
     modalClose();
   }
 });
+
+// Opens History Modal
+// const openHistoryModal = function () {
+//   modal.classList.remove("hidden");
+//   overlay.classList.remove("hidden");
+// };
+// searchHistoryBtn.addEventListener("click", openModal);
 
