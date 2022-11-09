@@ -12,7 +12,7 @@ const searchHistoryBtn = document.querySelector("#searchHistoryBtn");
 
 let wordInputEl = document.getElementById("search modal");
 let wordSearchButton = document.getElementById("searchBtn");
-let wordDefinition = document.getElementById("word-definition");
+let wordDefinition = document.getElementById("wordDefinition");
 let giphDisplayEl = document.getElementById("giphs");
 
 let meriamWebsterURL;
@@ -53,9 +53,9 @@ function getAPI(requestUrl) {
         console.log(definitionArray)
         console.log("Definitions sent to DOM")
         for (let i = 0; i < definitionArray; i++) {
-          let definition = document.createElement("p")
-          definition.textContent = definitionArray[i]
-          wordDefinition.appendChild(definition)
+          let definition = document.createElement("p");
+          definition.textContent = definitionArray[i];
+          wordDefinition.appendChild(definition);
         }
       }
       if (requestUrl === giphyURL) {
@@ -65,7 +65,7 @@ function getAPI(requestUrl) {
         for (let i = 0; i < giphArray; i++) {
           let giph = document.createElement("iframe");
           giph.src = giphArray[i].url;
-          giphDisplayEl.appendChild(giph)
+          giphDisplayEl.appendChild(giph);
         }
       }
     });
