@@ -1,7 +1,3 @@
-var searchedWord = "development";
-var definitionArray = "";
-var giphArray = [];
-
 // Search Modal Selectors
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
@@ -9,15 +5,20 @@ const openModalBtn = document.querySelector(".btn-open");
 const closeModalBtn = document.querySelector(".btn-close");
 const searchHistoryBtn = document.querySelector("#searchHistoryBtn");
 
-
+// DOM Element Selectors
 let wordInputEl = document.getElementById("search modal");
 let wordSearchButton = document.getElementById("searchBtn");
 let wordDefinition = document.getElementById("wordDefinition");
 let giphDisplayEl = document.getElementById("giphs");
 
+// State Variables
+var searchedWord = "";
+var definitionArray = "";
+var giphArray = [];
 let meriamWebsterURL;
 let giphyURL;
 
+// Updates API links
 function getMeriamWebsterURL() {
   meriamWebsterURL = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${searchedWord}?key=35209bec-5678-4beb-85bc-14642a260055`;
   getAPI(meriamWebsterURL)
@@ -30,13 +31,7 @@ function getGiphyURL() {
   return giphyURL
 }
 
-// link for search history 
-function getWord(event) {
-  event.preventDefault();
-  searchedWord = wordInputEl.textContent
-}
-// wordSearchButton.addEventListener("click", getWord);
-
+// Calls APIs
 function getAPI(requestUrl) {
   fetch(requestUrl)
     .then(function (response) {
