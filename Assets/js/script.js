@@ -10,20 +10,24 @@ const closeModalBtn = document.querySelector(".btn-close");
 const searchHistoryBtn = document.querySelector("#searchHistoryBtn");
 
 
-// let wordInputEl = document.getElementById("js-word-input");
-let wordSearchButton = document.getElementById("js-search-word");
+let wordInputEl = document.getElementById("search modal");
+let wordSearchButton = document.getElementById("searchBtn");
 let wordDefinition = document.getElementById("word-definition");
 let giphDisplayEl = document.getElementById("giphs");
 
-function meriamWebsterURL() {
-  let url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${searchedWord}?key=35209bec-5678-4beb-85bc-14642a260055`;
-  console.log(url)
-  return url
+let meriamWebsterURL;
+let giphyURL;
+
+function getMeriamWebsterURL() {
+  meriamWebsterURL = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${searchedWord}?key=35209bec-5678-4beb-85bc-14642a260055`;
+  console.log(meriamWebsterURL)
+  return meriamWebsterURL
 }
 
-function giphyURL() {
-  let url = `https://api.giphy.com/v1/gifs/search?api_key=C46PLya5FW7iVdgTbVrt2tvX26ZgIo8w&q=${searchedWord}&limit=3&offset=0&rating=g&lang=en`
-  return url
+function getGiphyURL() {
+  giphyURL = `https://api.giphy.com/v1/gifs/search?api_key=C46PLya5FW7iVdgTbVrt2tvX26ZgIo8w&q=${searchedWord}&limit=3&offset=0&rating=g&lang=en`
+  console.log(giphyURL)
+  return giphyURL
 }
 
 // link for search history 
@@ -36,7 +40,6 @@ function getWord(event) {
 function getAPI(requestUrl) {
   fetch(requestUrl)
     .then(function (response) {
-      console.log(response.status);
       if (response.status === 200) {
         console.log("Yay")
       } else {
@@ -45,6 +48,9 @@ function getAPI(requestUrl) {
       return response.json();
     })
     .then(function (data) {
+      console.log(requestUrl)
+      console.log(meriamWebsterURL)
+      console.log(giphyURL)
       if (requestUrl === meriamWebsterURL) {
         definitionArray = data[0].shortdef
         console.log(definitionArray)
@@ -53,6 +59,8 @@ function getAPI(requestUrl) {
           definition.textContent = definitionArray[i]
           wordDefinition.appendChild(definition)
         }
+      }else {
+        console.log("Sad dictionary")
       }
       if (requestUrl === giphyURL) {
         giphArray = data.data;
@@ -62,6 +70,8 @@ function getAPI(requestUrl) {
           giph.src = giphArray[i].url;
           giphDisplayEl.appendChild(giph)
         }
+      }else {
+        console.log("no gifs for you")
       }
     });
 }
@@ -69,12 +79,12 @@ function getAPI(requestUrl) {
 wordSearchButton.addEventListener("click", function (event) {
   event.preventDefault();
   searchedWord = wordInputEl.value
-  getAPI(meriamWebsterURL())
-  getAPI(giphyURL())
+  console.log(searchedWord)
+  getMeriamWebsterURL()
+  getGiphyURL()
+  getAPI(giphyURL)
+  getAPI(meriamWebsterURL)
 });
-getAPI (meriamWebsterURL)
-getAPI(giphyURL)
-
 
 // Opens Modal
 const openModal = function () {
