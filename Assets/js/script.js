@@ -104,9 +104,9 @@ document.addEventListener("keydown", function (e) {
 });
 
 // Opens History Modal
-// const openHistoryModal = function () {
-//   modal.classList.remove("hidden");
-//   overlay.classList.remove("hidden");
-// };
-// searchHistoryBtn.addEventListener("click", openModal);
+const openHistoryModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+searchHistoryBtn.addEventListener("click", openModal);
 
