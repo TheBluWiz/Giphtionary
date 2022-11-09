@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./Assets/css/style.css" />
   <title>07-Project-1</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
 </head>
 
 <body>
@@ -15,29 +16,29 @@
   <!-- Header -->
   <div class="header">
     <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="">WELCOME</a>
+      <a class="pure-menu-heading" href="">WELCOME</a>
 
-        <!-- Search History Modal -->
-        <ul class="pure-menu-list">
-          <section class="modal hidden" id="historyModal">
-            <div class="flex">
-              <img src="user.png" width="50px" height="50px" alt="user" />
-              <button class="btn-close">⨉</button>
-            </div>
-            <div>
-              <h3>Word Search History!</h3>
-              <p>
-                Past words here.
-              </p>
-            </div>
-      
-            <input type="search" id="search modal" placeholder="search word" />
-            <button class="btn">Submit</button>
-          </section>
-      
-          <div class="overlay hidden"></div>
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="searchHistoryBtn">Search History</a></li>
-        </ul>
+      <!-- Search History Modal -->
+      <ul class="pure-menu-list">
+        <section class="modal hidden" id="historyModal">
+          <div class="flex">
+            <img src="user.png" width="50px" height="50px" alt="user" />
+            <button class="btn-close">⨉</button>
+          </div>
+          <div>
+            <h3>Word Search History!</h3>
+            <p>
+              Past words here.
+            </p>
+          </div>
+
+          <input type="search" id="search modal" placeholder="search word" />
+          <button class="btn">Submit</button>
+        </section>
+
+        <div class="overlay hidden"></div>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="searchHistoryBtn">Search History</a></li>
+      </ul>
 
 
       <div id=“word-definition”> Word definition </div>
@@ -55,33 +56,56 @@
     <!-- Splash Container -->
     <div class="splash-container">
       <div class="splash">
-          <h1 class="splash-head">GIPHTIONARY</h1>
-          <p class="splash-subhead">
-              Where words meets giph.
-          </p>
-          <p>
-            <section class="modal hidden">
-              <div class="flex">
-                <img src="user.png" width="50px" height="50px" alt="user" />
-                <button class="btn-close">⨉</button>
-              </div>
-              <div>
-                <h3>Welcome to Giphtionary!</h3>
-                <p>
-                  Type in any word to get it's definition and it's giph.
-                </p>
-              </div>
-        
-              <input type="search" id="search modal" placeholder="search word" />
-              <button class="btn">Submit</button>
-            </section>
-        
-            <div class="overlay hidden"></div>
-            <button class="btn btn-open">Fun Starts Here!</button>
-          </p>
+        <h1 class="splash-head">GIPHTIONARY</h1>
+        <p class="splash-subhead">
+          Where words meets giph.
+        </p>
+        <p>
+        <section class="modal hidden">
+          <div class="flex">
+            <img src="user.png" width="50px" height="50px" alt="user" />
+            <button class="btn-close">⨉</button>
+          </div>
+          <div>
+            <h3>Welcome to Giphtionary!</h3>
+            <p>
+              Type in any word to get it's definition and it's giph.
+            </p>
+          </div>
+
+          <input type="search" id="search modal" placeholder="search word" />
+          <button class="btn">Submit</button>
+        </section>
+
+        <div class="overlay hidden"></div>
+        <button class="btn btn-open">Fun Starts Here!</button>
+        </p>
       </div>
     </div>
-    
+
+    <section id=“word-definition”>
+      - <h3>Word definition</h3>
+      -
+      <!-- Giphs here -->
+      - <div class="giph-list ">it
+        - <div class="card card-padding">
+          - <div>
+            - <img
+              src="https://media3.giphy.com/media/wgRxx8SKrwPOPSrITN/giphy360p.mp4?cid=ecf05e47i9gdys2xmjzzhtk8pjfq48as969ytxbjqfxm6rvg&rid=giphy360p.mp4&ct=v"
+              id="giphs">
+            - </div>
+          - </div>
+        -
+        - <div class="card card-padding">
+          - <div>
+            - <img
+              src="https://media3.giphy.com/media/wgRxx8SKrwPOPSrITN/giphy360p.mp4?cid=ecf05e47i9gdys2xmjzzhtk8pjfq48as969ytxbjqfxm6rvg&rid=giphy360p.mp4&ct=v"
+              id="giphs">
+            - </div>
+          - </div>
+        -
+    </section>
+
     <script src="./Assets/js/script.js"></script>
 
   </main>
