@@ -20,13 +20,13 @@ let giphyURL;
 
 function getMeriamWebsterURL() {
   meriamWebsterURL = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${searchedWord}?key=35209bec-5678-4beb-85bc-14642a260055`;
-  console.log(meriamWebsterURL)
+  getAPI(meriamWebsterURL)
   return meriamWebsterURL
 }
 
 function getGiphyURL() {
   giphyURL = `https://api.giphy.com/v1/gifs/search?api_key=C46PLya5FW7iVdgTbVrt2tvX26ZgIo8w&q=${searchedWord}&limit=3&offset=0&rating=g&lang=en`
-  console.log(giphyURL)
+  getAPI(giphyURL)
   return giphyURL
 }
 
@@ -48,21 +48,18 @@ function getAPI(requestUrl) {
       return response.json();
     })
     .then(function (data) {
-      console.log(requestUrl)
-      console.log(meriamWebsterURL)
-      console.log(giphyURL)
       if (requestUrl === meriamWebsterURL) {
         definitionArray = data[0].shortdef
         console.log(definitionArray)
+        console.log("Definitions sent to DOM")
         for (let i = 0; i < definitionArray; i++) {
           let definition = document.createElement("p")
           definition.textContent = definitionArray[i]
           wordDefinition.appendChild(definition)
         }
-      }else {
-        console.log("Sad dictionary")
       }
       if (requestUrl === giphyURL) {
+        console.log("Gifs sent to DOM")
         giphArray = data.data;
         console.log(giphArray)
         for (let i = 0; i < giphArray; i++) {
@@ -70,8 +67,6 @@ function getAPI(requestUrl) {
           giph.src = giphArray[i].url;
           giphDisplayEl.appendChild(giph)
         }
-      }else {
-        console.log("no gifs for you")
       }
     });
 }
@@ -79,11 +74,8 @@ function getAPI(requestUrl) {
 wordSearchButton.addEventListener("click", function (event) {
   event.preventDefault();
   searchedWord = wordInputEl.value
-  console.log(searchedWord)
   getMeriamWebsterURL()
   getGiphyURL()
-  getAPI(giphyURL)
-  getAPI(meriamWebsterURL)
 });
 
 // Opens Modal
