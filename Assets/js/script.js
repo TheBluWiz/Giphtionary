@@ -10,6 +10,8 @@ let wordInputEl = document.getElementById("search modal");
 let wordSearchButton = document.getElementById("searchBtn");
 let wordDefinition = document.getElementById("wordDefinition");
 let giphDisplayEl = document.getElementById("giphs");
+console.log(wordDefinition)
+console.log(giphDisplayEl)
 
 // State Variables
 var searchedWord = "";
