@@ -1,32 +1,26 @@
 # Giphtionary
 
-![](https://img.shields.io/badge/CSS-blue.svg)
-![](https://img.shields.io/badge/HTML-orange.svg)
-![](https://img.shields.io/badge/JavaScript-yellow.svg)
-
-## Table of Contents
-
-- [Description](#description)
-- [Credits](#credits)
-- [License](#license)
-- [Deployed Page](#deployed-page)
-- [Contact](#contact)
+<a href="https://TheBluWiz.github.io/Giphtionary/">Deployed Application Link</a>
 
 ## Description
 
-TO DO!
+Where words meets giph! A vanilla JS app to check word definitions that displays complementary GIFs. 
 
-## Credits
-TO DO!
+## APIs/Frameworks
+- <a href="https://dictionaryapi.com/" >Merriam Webster API</a>
+- <a href="https://developers.giphy.com/" >Giphy API</a>
+- <a href="https://purecss.io/" >Pure.css</a>
+- <a href="https://www.freecodecamp.org/" >freeCodeCamp</a>
+
+## User Story
+
+As a student \
+I want to look up the definition of a word and use a GIPH to provide a visual example \
+So that I can gain a better understanding of different words 
 
 ## License
 
 Please refer to the LICENSE in the repo.
-
-## Deployed Page
-
-<a href="https://TheBluWiz.github.io/Giphtionary/">Deployed Application Link</a>
-
 
 ## Working Application Screenshot
 TO DO!
