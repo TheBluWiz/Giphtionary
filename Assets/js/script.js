@@ -59,7 +59,7 @@ function getAPI(requestUrl) {
         console.log(giphArray)
         for (let i = 0; i < giphArray; i++) {
           let giph = document.createElement("iframe");
-          giph.src = giphArray[i].url;
+          giph.src = giphArray[i].embed_url;
           giphDisplayEl.appendChild(giph);
         }
       }
