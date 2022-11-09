@@ -49,7 +49,8 @@ function getAPI(requestUrl) {
         definitionArray = data[0].shortdef
         console.log(definitionArray)
         console.log("Definitions sent to DOM")
-        for (let i = 0; i < definitionArray; i++) {
+        console.log()
+        for (let i = 0; i < definitionArray.length; i++) {
           let definition = document.createElement("p");
           definition.textContent = definitionArray[i];
           wordDefinition.appendChild(definition);
@@ -59,7 +60,7 @@ function getAPI(requestUrl) {
         console.log("Gifs sent to DOM")
         giphArray = data.data;
         console.log(giphArray)
-        for (let i = 0; i < giphArray; i++) {
+        for (let i = 0; i < giphArray.length; i++) {
           let giph = document.createElement("iframe");
           giph.src = giphArray[i].embed_url;
           giphDisplayEl.appendChild(giph);
