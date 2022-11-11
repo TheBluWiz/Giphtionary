@@ -146,6 +146,11 @@ body {
   margin: 0.4rem 0 0.2rem;
 }
 
+#recentSearches {
+  display: flex;
+  flex-direction: column;
+}
+
 button {
   cursor: pointer;
   border: none;
@@ -161,7 +166,6 @@ button {
   border-radius: 5px;
   text-align: center;
   font-size: 1em;
-
 }
 
 .btn-open {
