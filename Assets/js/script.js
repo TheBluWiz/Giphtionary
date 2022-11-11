@@ -8,6 +8,7 @@ let wordInputEl = document.getElementById("search-modal");
 let wordSearchButton = document.getElementById("searchBtn");
 let wordDefinition = document.getElementById("wordDefinition");
 let giphDisplayEl = document.getElementById("giphs");
+let searchModalEl = document.getElementById("searchModal")
 
 // State Variables
 var searchedWord = "";
@@ -72,6 +73,7 @@ wordSearchButton.addEventListener("click", function (event) {
   getMeriamWebsterURL()
   getGiphyURL()
   appendHistory(searchedWord)
+  searchModalEl.classList.add("hidden");
 });
 
 // Opens Modal
@@ -79,7 +81,7 @@ openModalBtn.forEach(function (btn) {
   btn.onclick = function () {
     var modal = btn.getAttribute('data-modal');
     document.getElementById(modal).classList.remove("hidden");
-    // overlay.classList.remove("hidden");
+    overlay.classList.remove("hidden");
   };
 });
 
