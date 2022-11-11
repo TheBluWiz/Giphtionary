@@ -15,6 +15,7 @@ body {
   color: #222;
   position: relative;
   min-height: 100vh;
+  background-color: #bad2d9;
 }
 
 /* Header */
@@ -63,9 +64,11 @@ body {
   overflow: hidden;
   /* The following styles are required for the "scroll-over" effect */
   width: 100%;
-  height: 88%;
+  height: 400px;
   top: 0;
   left: 0;
+  margin-bottom: -5px;
+  padding: 0;
   position: fixed !important;
 }
 
@@ -257,6 +260,28 @@ input {
   object-fit: cover;
 }
 
+#resultsContainer {
+  display: flex;
+  flex-direction: column;
+  border-top: solid lightseagreen;
+  padding: 0;
+  position: absolute;
+  top: 600px;
+}
+
+#resultsContainer p {
+  margin-bottom: 1rem;
+}
+
+#giphs {
+  display: flex;
+  justify-content: space-between;
+}
+
+iframe {
+  border: none;
+}
+
 /* Media Queries */
 @media (min-width: 48em) {
 
@@ -277,7 +302,7 @@ input {
 
   /* We increase the height of the splash-container */
   .splash-container {
-    height: 500px;
+    height: 420px;
   }
 
   /* We decrease the width of the .splash, since we have more width
