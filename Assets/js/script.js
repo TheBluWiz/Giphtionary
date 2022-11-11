@@ -19,6 +19,7 @@ var definitionArray = "";
 var giphArray = [];
 let meriamWebsterURL;
 let giphyURL;
+let history = [];
 
 // Updates API links
 function getMeriamWebsterURL() {
@@ -31,6 +32,7 @@ function getGiphyURL() {
   giphyURL = `https://api.giphy.com/v1/gifs/search?api_key=C46PLya5FW7iVdgTbVrt2tvX26ZgIo8w&q=${searchedWord}&limit=3&offset=0&rating=g&lang=en`
   getAPI(giphyURL)
   return giphyURL
+
 }
 
 // Calls APIs
@@ -74,6 +76,7 @@ wordSearchButton.addEventListener("click", function (event) {
   searchedWord = wordInputEl.value
   getMeriamWebsterURL()
   getGiphyURL()
+  appendHistory(searchedWord)
 });
 
 // Opens Modal
@@ -83,14 +86,12 @@ const openModal = function () {
 };
 openModalBtn.addEventListener("click", openModal);
 
-
 // Close Modal
 const closeModal = function () {
   modal.classList.add("hidden");
   overlay.classList.add("hidden");
 };
 closeModalBtn.addEventListener("click", closeModal);
-
 overlay.addEventListener("click", closeModal);
 
 // Close Modal on Key Press
@@ -107,4 +108,25 @@ const openHistoryModal = function () {
   overlay.classList.remove("hidden");
 };
 searchHistoryBtn.addEventListener("click", openModal);
+
+// Limits persistent storage to ten
+function appendHistory() {
+  if (history.length >= 10) {
+    history.shift();
+  }
+  history.push(searchedWord);
+  localStorage.setItem("history", JSON.stringify(history));
+}
+
+// Saves history
+function getSearches() {
+  let storedHistory = localStorage.getItem("history");
+  if (storedHistory) {
+    history = JSON.parse(storedHistory);
+  }
+  renderSearchHistory();
+};
+
+getSearches()
+
 
