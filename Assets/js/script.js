@@ -98,7 +98,7 @@ openModalBtn.forEach(function (btn) {
 closeModalBtn.forEach(function (btn) {
   btn.onclick = function (event) {
     console.log(btn);
-    // var modal = (btn.closest(".modal").style.display = "none");
+    
     event.target.parentNode.parentNode.classList.add("hidden");
     // overlay.classList.add("hidden");
   }

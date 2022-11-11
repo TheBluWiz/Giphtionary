@@ -6,8 +6,6 @@
 }
 
 body {
-
-  /* Added by Carrie */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,12 +62,12 @@ body {
   overflow: hidden;
   /* The following styles are required for the "scroll-over" effect */
   width: 100%;
-  height: 400px;
+  height: 35%;
   top: 0;
   left: 0;
-  margin-bottom: -5px;
   padding: 0;
   position: fixed !important;
+ 
 }
 
 .splash {
@@ -265,22 +263,21 @@ input {
 }
 
 #resultsContainer {
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
+  align-items: center;
   border-top: solid lightseagreen;
-  padding: 0;
+  /* padding: 0; */
   position: absolute;
-  top: 600px;
+  /* top: 100px; */
+  bottom: 0;
 }
 
 #resultsContainer p {
   margin-bottom: 1rem;
 }
 
-#giphs {
-  display: flex;
-  justify-content: space-between;
-}
+
 
 iframe {
   border: none;
@@ -306,7 +303,7 @@ iframe {
 
   /* We increase the height of the splash-container */
   .splash-container {
-    height: 420px;
+    height: 500px;
   }
 
   /* We decrease the width of the .splash, since we have more width
