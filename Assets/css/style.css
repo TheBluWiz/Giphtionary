@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +6,7 @@
 }
 
 body {
-  
+
   /* Added by Carrie */
   display: flex;
   flex-direction: column;
@@ -18,16 +17,17 @@ body {
   min-height: 100vh;
 }
 
-
 /* Header */
 .home-menu {
   padding: 0.5em;
   text-align: center;
-  box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
 }
+
 .home-menu {
   background: lightseagreen;
 }
+
 .pure-menu.pure-menu-fixed {
   /* Fixed menus normally have a border at the bottom. */
   border-bottom: none;
@@ -48,6 +48,7 @@ body {
 .home-menu a {
   color: #f4f8f7;
 }
+
 .home-menu li a:hover,
 .home-menu li a:focus {
   background: none;
@@ -74,9 +75,12 @@ body {
   height: 50%;
   margin: auto;
   position: absolute;
-  top: 100px; left: 0; bottom: 0; right: 0;
+  top: 100px;
+  left: 0;
+  bottom: 0;
+  right: 0;
   text-align: center;
-  
+
 }
 
 /* This is the main heading that appears on the blue section */
@@ -154,17 +158,14 @@ button {
   border-radius: 5px;
   text-align: center;
   font-size: 1em;
-  
+
 }
 
 .btn-open {
-  /* position: absolute;
-  bottom: 500px;
-  right: 120px; */
   background-color: lightseagreen;
-    color: white;
-    padding: 0.5em 2em;
-    border-radius: 5px;
+  color: white;
+  padding: 0.5em 2em;
+  border-radius: 5px;
 }
 
 .btn-close {
@@ -193,43 +194,40 @@ button {
 }
 
 .giph-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 .card {
-    /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0
-      rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    border: none;
-    color: white;
-    background-color: grey;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    align-content: center;
-    text-align: center;
-    margin-top: 10px;
-    padding: 2px 16px;
-  }
-  
-  /* On mouse-over, add a deeper shadow */
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border: none;
+  color: white;
+  background-color: grey;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  align-content: center;
+  text-align: center;
+  margin-top: 10px;
+  padding: 2px 16px;
+}
 
-  iframe:hover {
-    box-shadow: inset 0px 0px 8px rgb(38, 241, 197), 0 0 15px rgb(21, 230, 150);
-  }
-  
- .btn-open:hover {
-    box-shadow: inset 0px 0px 8px rgb(38, 241, 197), 0 0 15px rgb(21, 230, 150);
-  }
+iframe:hover {
+  box-shadow: inset 0px 0px 8px rgb(38, 241, 197), 0 0 15px rgb(21, 230, 150);
+}
 
-  /* Add some padding inside the card container */
-  .card-padding {
-    margin-top: 10px;
-    padding: 2px 16px;
-  }
-  
+.btn-open:hover {
+  box-shadow: inset 0px 0px 8px rgb(38, 241, 197), 0 0 15px rgb(21, 230, 150);
+}
+
+/* Add some padding inside the card container */
+.card-padding {
+  margin-top: 10px;
+  padding: 2px 16px;
+}
+
 form {
   display: flex;
   flex-direction: row;
@@ -264,40 +262,39 @@ input {
 
   /* We increase the body font size */
   body {
-      font-size: 16px;
+    font-size: 16px;
   }
 
   /* We can align the menu header to the left, but float the
   menu items to the right. */
   .home-menu {
-      text-align: left;
+    text-align: left;
   }
-      .home-menu ul {
-          float: right;
-      }
+
+  .home-menu ul {
+    float: right;
+  }
 
   /* We increase the height of the splash-container */
-   .splash-container {
-      height: 500px;
+  .splash-container {
+    height: 500px;
   }
 
   /* We decrease the width of the .splash, since we have more width
   to work with */
   .splash {
-      width: 50%;
-      height: 50%;
+    width: 50%;
+    height: 50%;
   }
 
   .splash-head {
-      font-size: 250%;
+    font-size: 250%;
   }
-
 
   /* We remove the border-separator assigned to .l-box-lrg */
   .l-box-lrg {
-      border: none;
+    border: none;
   }
-
 }
 
 /*
@@ -306,11 +303,11 @@ input {
 * of the mobile and tablet styles.
 */
 @media (min-width: 78em) {
+
   /* We increase the header font size even more */
   .splash-head {
-      font-size: 300%;
+    font-size: 300%;
   }
 }
 
 /* End of Media Queries */
-

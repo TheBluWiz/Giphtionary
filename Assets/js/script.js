@@ -3,8 +3,6 @@ const overlay = document.querySelectorAll(".overlay");
 const openModalBtn = document.querySelectorAll(".btn-open");
 const closeModalBtn = document.querySelectorAll(".btn-close");
 
-
-
 // DOM Element Selectors
 let wordInputEl = document.getElementById("search-modal");
 let wordSearchButton = document.getElementById("searchBtn");
@@ -32,7 +30,6 @@ function getGiphyURL() {
   giphyURL = `https://api.giphy.com/v1/gifs/search?api_key=C46PLya5FW7iVdgTbVrt2tvX26ZgIo8w&q=${searchedWord}&limit=3&offset=0&rating=g&lang=en`
   getAPI(giphyURL)
   return giphyURL
-
 }
 
 // Calls APIs
@@ -79,28 +76,24 @@ wordSearchButton.addEventListener("click", function (event) {
   appendHistory(searchedWord)
 });
 
-
 // Opens Modal
-openModalBtn.forEach(function(btn) {
-  btn.onclick = function() {
+openModalBtn.forEach(function (btn) {
+  btn.onclick = function () {
     var modal = btn.getAttribute('data-modal');
     document.getElementById(modal).classList.remove("hidden");
-    overlay.classList.remove("hidden");
+    // overlay.classList.remove("hidden");
   };
 });
 
-
 // Close Modal
-closeModalBtn.forEach(function(btn) {
-  btn.onclick = function(event) {
+closeModalBtn.forEach(function (btn) {
+  btn.onclick = function (event) {
     console.log(btn);
     // var modal = (btn.closest(".modal").style.display = "none");
     event.target.parentNode.parentNode.classList.add("hidden");
-    overlay.classList.add("hidden");
+    // overlay.classList.add("hidden");
   }
-}
-)
-
+})
 
 // Limits persistent storage to ten
 function appendHistory() {
@@ -117,58 +110,7 @@ function getSearches() {
   if (storedHistory) {
     history = JSON.parse(storedHistory);
   }
-  renderSearchHistory();
+  // renderSearchHistory();
 };
 
 getSearches()
-
-function appendHistory(search) {
-  history.push(searchedWord);
-  localStorage.setItem("history", JSON.stringify(history));
-}
-
-function getSearches() {
-  let storedHistory = localStorage.getItem("history");
-  if (storedHistory) {
-   history = JSON.parse(storedHistory);
-  }
-  renderSearchHistory();
-};
-
-
-
-// Limits persistent storage to ten
-function appendHistory() {
-  if (history.length >= 10) {
-    history.shift();
-  }
-  history.push(searchedWord);
-  localStorage.setItem("history", JSON.stringify(history));
-}
-
-// Saves history
-function getSearches() {
-  let storedHistory = localStorage.getItem("history");
-  if (storedHistory) {
-    history = JSON.parse(storedHistory);
-  }
-  renderSearchHistory();
-};
-
-getSearches()
-
-function appendHistory(search) {
-  history.push(searchedWord);
-  localStorage.setItem("history", JSON.stringify(history));
-}
-
-function getSearches() {
-  let storedHistory = localStorage.getItem("history");
-  if (storedHistory) {
-   history = JSON.parse(storedHistory);
-  }
-  renderSearchHistory();
-};
-
-
-
