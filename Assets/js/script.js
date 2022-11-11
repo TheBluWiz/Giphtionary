@@ -81,7 +81,7 @@ openModalBtn.forEach(function (btn) {
   btn.onclick = function () {
     var modal = btn.getAttribute('data-modal');
     document.getElementById(modal).classList.remove("hidden");
-    overlay.classList.remove("hidden");
+    // overlay.classList.remove("hidden");
   };
 });
 
@@ -89,7 +89,7 @@ openModalBtn.forEach(function (btn) {
 closeModalBtn.forEach(function (btn) {
   btn.onclick = function (event) {
     console.log(btn);
-    // var modal = (btn.closest(".modal").style.display = "none");
+    
     event.target.parentNode.parentNode.classList.add("hidden");
     // overlay.classList.add("hidden");
   }
