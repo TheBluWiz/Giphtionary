@@ -10,6 +10,7 @@ let wordDefinition = document.getElementById("wordDefinition");
 let giphDisplayEl = document.getElementById("giphs");
 let searchModalEl = document.getElementById("searchModal")
 let recentSearchesEl = document.getElementById("recentSearches")
+let historyModalEl = document.getElementById("historyModal");
 
 // State Variables
 var searchedWord = "";
@@ -74,16 +75,30 @@ function deleteResults(x) {
   }
 }
 
-wordSearchButton.addEventListener("click", function (event) {
-  event.preventDefault();
+function search() {
   deleteResults(giphDisplayEl)
   deleteResults(wordDefinition)
-  searchedWord = wordInputEl.value
   getMeriamWebsterURL()
   getGiphyURL()
   appendHistory(searchedWord)
+}
+
+wordSearchButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  searchedWord = wordInputEl.value
+  search();
   searchModalEl.classList.add("hidden");
 });
+
+recentSearchesEl.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (event.target.dataset.test === "btn") {
+   searchedWord = event.target.textContent
+   search();
+   historyModalEl.classList.add("hidden");
+  }  
+});
+
 
 // Opens Modal
 openModalBtn.forEach(function (btn) {
@@ -140,10 +155,9 @@ function renderSearchHistory() {
     searchHistoryButton.classList.add("btn");
     searchHistoryButton.style.margin = ".25rem";
     searchHistoryButton.textContent = history[i]; 
+    searchHistoryButton.dataset.test = "btn";
     recentSearchesEl.append(searchHistoryButton);
   }
 }
-
-
 
 getSearches()
