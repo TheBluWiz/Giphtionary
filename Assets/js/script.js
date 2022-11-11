@@ -113,7 +113,7 @@ function appendHistory() {
       j = true
     }
   }
-  if (j = false) {
+  if (j === false) {
     console.log("adding result");
     if (history.length >= 10) {
       history.shift();
@@ -136,11 +136,14 @@ function renderSearchHistory() {
   deleteResults(recentSearchesEl);
   wordInputEl.innerHTML = "";
   for (let i = 0; i < history.length; i++) {
-    var wordSearchButton = document.createElement("button");
-    wordSearchButton.classList.add(".btn");
-    wordSearchButton.textContent = history[i]; 
-    recentSearchesEl.append(wordSearchButton);
+    var searchHistoryButton = document.createElement("button");
+    searchHistoryButton.classList.add("btn");
+    searchHistoryButton.style.margin = ".25rem";
+    searchHistoryButton.textContent = history[i]; 
+    recentSearchesEl.append(searchHistoryButton);
   }
 }
+
+
 
 getSearches()
