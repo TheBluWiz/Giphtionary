@@ -1,9 +1,9 @@
 // Search Modal Selectors
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const openModalBtn = document.querySelector(".btn-open");
-const closeModalBtn = document.querySelector(".btn-close");
-const searchHistoryBtn = document.querySelector("#searchHistoryBtn");
+const overlay = document.querySelectorAll(".overlay");
+const openModalBtn = document.querySelectorAll(".btn-open");
+const closeModalBtn = document.querySelectorAll(".btn-close");
+
+
 
 // DOM Element Selectors
 let wordInputEl = document.getElementById("search modal");
@@ -73,35 +73,27 @@ wordSearchButton.addEventListener("click", function (event) {
   getGiphyURL()
 });
 
+
 // Opens Modal
-const openModal = function () {
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-};
-openModalBtn.addEventListener("click", openModal);
+openModalBtn.forEach(function(btn) {
+  btn.onclick = function() {
+    var modal = btn.getAttribute('data-modal');
+    document.getElementById(modal).classList.remove("hidden");
+    overlay.classList.remove("hidden");
+  };
+});
+
 
 
 // Close Modal
-const closeModal = function () {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-};
-closeModalBtn.addEventListener("click", closeModal);
-
-overlay.addEventListener("click", closeModal);
-
-// Close Modal on Key Press
-// document.addEventListener("keydown");
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-    modalClose();
+closeModalBtn.forEach(function(btn) {
+  btn.onclick = function(event) {
+    console.log(btn);
+    // var modal = (btn.closest(".modal").style.display = "none");
+    event.target.parentNode.parentNode.classList.add("hidden");
+    overlay.classList.add("hidden");
   }
-});
+}
+)
 
-// Opens History Modal
-const openHistoryModal = function () {
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-};
-searchHistoryBtn.addEventListener("click", openModal);
 
