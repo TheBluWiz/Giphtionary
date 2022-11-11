@@ -22,7 +22,7 @@
       <ul class="pure-menu-list">
         <section class="modal hidden" id="historyModal">
           <div class="flex">
-            <button class="btn-close">⨉</button>
+            <button class="btn-close" >⨉</button>
           </div>
           <div>
             <h3>Word Search History!</h3>
@@ -30,15 +30,16 @@
               Past words here.
             </p>
           </div>
-
-          <input type="search" id="search-modal" placeholder="search word" />
           <button class="btn" id="searchBtn">Submit</button>
         </section>
 
         <div class="overlay hidden"></div>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="searchHistoryBtn">Search History</a></li>
+        <li>
+          <button class="btn-open" data-modal="historyModal">Search History</button>
+        </li>
       </ul>
 
+      <!-- Gif Cards -->
       <section class="container" id="giphs"></section>
        <div class=“cards”>
         <section class="container"></section>
@@ -57,10 +58,9 @@
           Where words meets giph.
         </p>
         <p>
-        <section class="modal hidden">
+        <section class="modal hidden" id="searchModal">
           <div class="flex">
-            <img src="user.png" width="50px" height="50px" alt="user" />
-            <button class="btn-close">⨉</button>
+            <button class="btn-close" >⨉</button>
           </div>
           <div>
             <h3>Welcome to Giphtionary!</h3>
@@ -74,7 +74,7 @@
         </section>
 
         <div class="overlay hidden"></div>
-        <button class="btn btn-open">Fun Starts Here!</button>
+        <button class="btn btn-open" data-modal="searchModal">Fun Starts Here!</button>
         </p>
       </div>
       <section>
