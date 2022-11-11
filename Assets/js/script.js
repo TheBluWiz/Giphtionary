@@ -6,10 +6,12 @@ const closeModalBtn = document.querySelectorAll(".btn-close");
 
 
 // DOM Element Selectors
-let wordInputEl = document.getElementById("search modal");
+let wordInputEl = document.getElementById("search-modal");
 let wordSearchButton = document.getElementById("searchBtn");
 let wordDefinition = document.getElementById("wordDefinition");
 let giphDisplayEl = document.getElementById("giphs");
+console.log(wordDefinition)
+console.log(giphDisplayEl)
 
 // State Variables
 var searchedWord = "";
@@ -17,6 +19,7 @@ var definitionArray = "";
 var giphArray = [];
 let meriamWebsterURL;
 let giphyURL;
+let history = [];
 
 // Updates API links
 function getMeriamWebsterURL() {
@@ -29,6 +32,7 @@ function getGiphyURL() {
   giphyURL = `https://api.giphy.com/v1/gifs/search?api_key=C46PLya5FW7iVdgTbVrt2tvX26ZgIo8w&q=${searchedWord}&limit=3&offset=0&rating=g&lang=en`
   getAPI(giphyURL)
   return giphyURL
+
 }
 
 // Calls APIs
@@ -47,7 +51,8 @@ function getAPI(requestUrl) {
         definitionArray = data[0].shortdef
         console.log(definitionArray)
         console.log("Definitions sent to DOM")
-        for (let i = 0; i < definitionArray; i++) {
+        console.log()
+        for (let i = 0; i < definitionArray.length; i++) {
           let definition = document.createElement("p");
           definition.textContent = definitionArray[i];
           wordDefinition.appendChild(definition);
@@ -57,9 +62,9 @@ function getAPI(requestUrl) {
         console.log("Gifs sent to DOM")
         giphArray = data.data;
         console.log(giphArray)
-        for (let i = 0; i < giphArray; i++) {
+        for (let i = 0; i < giphArray.length; i++) {
           let giph = document.createElement("iframe");
-          giph.src = giphArray[i].url;
+          giph.src = giphArray[i].embed_url;
           giphDisplayEl.appendChild(giph);
         }
       }
@@ -71,6 +76,7 @@ wordSearchButton.addEventListener("click", function (event) {
   searchedWord = wordInputEl.value
   getMeriamWebsterURL()
   getGiphyURL()
+  appendHistory(searchedWord)
 });
 
 
@@ -84,7 +90,6 @@ openModalBtn.forEach(function(btn) {
 });
 
 
-
 // Close Modal
 closeModalBtn.forEach(function(btn) {
   btn.onclick = function(event) {
@@ -95,5 +100,75 @@ closeModalBtn.forEach(function(btn) {
   }
 }
 )
+
+
+// Limits persistent storage to ten
+function appendHistory() {
+  if (history.length >= 10) {
+    history.shift();
+  }
+  history.push(searchedWord);
+  localStorage.setItem("history", JSON.stringify(history));
+}
+
+// Saves history
+function getSearches() {
+  let storedHistory = localStorage.getItem("history");
+  if (storedHistory) {
+    history = JSON.parse(storedHistory);
+  }
+  renderSearchHistory();
+};
+
+getSearches()
+
+function appendHistory(search) {
+  history.push(searchedWord);
+  localStorage.setItem("history", JSON.stringify(history));
+}
+
+function getSearches() {
+  let storedHistory = localStorage.getItem("history");
+  if (storedHistory) {
+   history = JSON.parse(storedHistory);
+  }
+  renderSearchHistory();
+};
+
+
+
+// Limits persistent storage to ten
+function appendHistory() {
+  if (history.length >= 10) {
+    history.shift();
+  }
+  history.push(searchedWord);
+  localStorage.setItem("history", JSON.stringify(history));
+}
+
+// Saves history
+function getSearches() {
+  let storedHistory = localStorage.getItem("history");
+  if (storedHistory) {
+    history = JSON.parse(storedHistory);
+  }
+  renderSearchHistory();
+};
+
+getSearches()
+
+function appendHistory(search) {
+  history.push(searchedWord);
+  localStorage.setItem("history", JSON.stringify(history));
+}
+
+function getSearches() {
+  let storedHistory = localStorage.getItem("history");
+  if (storedHistory) {
+   history = JSON.parse(storedHistory);
+  }
+  renderSearchHistory();
+};
+
 
 
