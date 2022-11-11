@@ -9,6 +9,7 @@ let wordSearchButton = document.getElementById("searchBtn");
 let wordDefinition = document.getElementById("wordDefinition");
 let giphDisplayEl = document.getElementById("giphs");
 let searchModalEl = document.getElementById("searchModal")
+let recentSearchesEl = document.getElementById("recentSearches")
 
 // State Variables
 var searchedWord = "";
@@ -46,7 +47,6 @@ function getAPI(requestUrl) {
       if (requestUrl === meriamWebsterURL) {
         definitionArray = data[0].shortdef
         console.log(definitionArray)
-        console.log("Definitions sent to DOM")
         console.log()
         for (let i = 0; i < definitionArray.length; i++) {
           let definition = document.createElement("p");
@@ -55,7 +55,6 @@ function getAPI(requestUrl) {
         }
       }
       if (requestUrl === giphyURL) {
-        console.log("Gifs sent to DOM")
         giphArray = data.data;
         console.log(giphArray)
         for (let i = 0; i < giphArray.length; i++) {
@@ -67,8 +66,18 @@ function getAPI(requestUrl) {
     });
 }
 
+function deleteResults(x) {
+  if (x.firstChild) {
+    while (x.firstChild) {
+      x.removeChild(x.firstChild);
+    }
+  }
+}
+
 wordSearchButton.addEventListener("click", function (event) {
   event.preventDefault();
+  deleteResults(giphDisplayEl)
+  deleteResults(wordDefinition)
   searchedWord = wordInputEl.value
   getMeriamWebsterURL()
   getGiphyURL()
@@ -97,20 +106,44 @@ closeModalBtn.forEach(function (btn) {
 
 // Limits persistent storage to ten
 function appendHistory() {
-  if (history.length >= 10) {
-    history.shift();
+  let j = false;
+  for (let i = 0; i < history.length; i++) {
+    console.log("compared");
+    if (searchedWord === history[i]) {
+      j = true
+    }
   }
-  history.push(searchedWord);
+  if (j === false) {
+    console.log("adding result");
+    if (history.length >= 10) {
+      history.shift();
+    }
+    history.push(searchedWord);
+  }
   localStorage.setItem("history", JSON.stringify(history));
+  getSearches()
 }
 
 // Saves history
 function getSearches() {
-  let storedHistory = localStorage.getItem("history");
-  if (storedHistory) {
-    history = JSON.parse(storedHistory);
+  if (JSON.parse(localStorage.getItem("history")) !== null) {
+    history = JSON.parse(localStorage.getItem("history"));
   }
-  // renderSearchHistory();
+  renderSearchHistory();
 };
+
+function renderSearchHistory() {
+  deleteResults(recentSearchesEl);
+  wordInputEl.innerHTML = "";
+  for (let i = 0; i < history.length; i++) {
+    var searchHistoryButton = document.createElement("button");
+    searchHistoryButton.classList.add("btn");
+    searchHistoryButton.style.margin = ".25rem";
+    searchHistoryButton.textContent = history[i]; 
+    recentSearchesEl.append(searchHistoryButton);
+  }
+}
+
+
 
 getSearches()
