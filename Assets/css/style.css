@@ -139,8 +139,6 @@ body {
   margin: 0.4rem 0 0.2rem;
 }
 
-
-
 button {
   cursor: pointer;
   border: none;
@@ -217,11 +215,15 @@ button {
   }
   
   /* On mouse-over, add a deeper shadow */
-  .card:hover {
-    box-shadow: 0 8px 16px 0
-      rgba(0, 0, 0, 0.2);
+
+  iframe:hover {
+    box-shadow: inset 0px 0px 8px rgb(38, 241, 197), 0 0 15px rgb(21, 230, 150);
   }
   
+ .btn-open:hover {
+    box-shadow: inset 0px 0px 8px rgb(38, 241, 197), 0 0 15px rgb(21, 230, 150);
+  }
+
   /* Add some padding inside the card container */
   .card-padding {
     margin-top: 10px;
