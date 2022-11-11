@@ -75,14 +75,18 @@ function deleteResults(x) {
   }
 }
 
-wordSearchButton.addEventListener("click", function (event) {
-  event.preventDefault();
+function search() {
   deleteResults(giphDisplayEl)
   deleteResults(wordDefinition)
-  searchedWord = wordInputEl.value
   getMeriamWebsterURL()
   getGiphyURL()
   appendHistory(searchedWord)
+}
+
+wordSearchButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  searchedWord = wordInputEl.value
+  search();
   searchModalEl.classList.add("hidden");
 });
 
@@ -90,15 +94,11 @@ recentSearchesEl.addEventListener("click", function (event) {
   event.preventDefault();
   if (event.target.dataset.test === "btn") {
    searchedWord = event.target.textContent
-   deleteResults(giphDisplayEl)
-   deleteResults(wordDefinition)
-   getMeriamWebsterURL()
-   getGiphyURL()
-   appendHistory(searchedWord)
+   search();
    historyModalEl.classList.add("hidden");
-  }
-    
+  }  
 });
+
 
 // Opens Modal
 openModalBtn.forEach(function (btn) {
