@@ -67,8 +67,18 @@ function getAPI(requestUrl) {
     });
 }
 
+function deleteResults(x) {
+  if (x.firstChild) {
+    while (x.firstChild) {
+      x.removeChild(x.firstChild);
+    }
+  }
+}
+
 wordSearchButton.addEventListener("click", function (event) {
   event.preventDefault();
+  deleteResults(giphDisplayEl)
+  deleteResults(wordDefinition)
   searchedWord = wordInputEl.value
   getMeriamWebsterURL()
   getGiphyURL()
