@@ -142,15 +142,5 @@ function getSearches() {
   renderSearchHistory();
 };
 
-function renderSearchHistory() {
-  wordInputEl.innerHTML = "";
-  for (let i = 0; i < searchedWord.length; i++) {
-    var searchHistoryBtn = document.createElement("button");
-    var recentSearchesLi = document.createElement("li");
-    recentSearchesLi.append(searchHistoryBtn);
-    searchHistoryBtn.setAttribute("data-search", searchedWord[i]);
-    searchHistoryBtn.textContent = searchedWord[i];
-    wordInputEl.append(recentSearchesLi);
-  }
-}
+
 
