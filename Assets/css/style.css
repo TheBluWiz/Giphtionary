@@ -348,6 +348,12 @@ iframe {
   .splash-head {
     font-size: 300%;
   }
+
+ #resultsContainer {
+    max-width: 78em;
+    margin: 0 auto;
+  }
+
 }
 
 /* End of Media Queries */
