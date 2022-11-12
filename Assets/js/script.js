@@ -28,7 +28,7 @@ function getMeriamWebsterURL() {
 }
 
 function getGiphyURL() {
-  giphyURL = `https://api.giphy.com/v1/gifs/search?api_key=C46PLya5FW7iVdgTbVrt2tvX26ZgIo8w&q=${searchedWord}&limit=3&offset=0&rating=g&lang=en`
+  giphyURL = `https://api.giphy.com/v1/gifs/search?api_key=C46PLya5FW7iVdgTbVrt2tvX26ZgIo8w&q=${searchedWord}&limit=6&offset=0&rating=g&lang=en`
   getAPI(giphyURL)
   return giphyURL
 }
