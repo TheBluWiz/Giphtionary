@@ -1,21 +1,19 @@
-// Search Modal Selectors
+// DOM Element Selectors
 const overlay = document.querySelectorAll(".overlay");
 const openModalBtn = document.querySelectorAll(".btn-open");
 const closeModalBtn = document.querySelectorAll(".btn-close");
-
-// DOM Element Selectors
-let wordInputEl = document.getElementById("search-modal");
-let wordSearchButton = document.getElementById("searchBtn");
-let wordDefinition = document.getElementById("wordDefinition");
-let giphDisplayEl = document.getElementById("giphs");
-let searchModalEl = document.getElementById("searchModal")
-let recentSearchesEl = document.getElementById("recentSearches")
-let historyModalEl = document.getElementById("historyModal");
-let clearButtonEl = document.getElementById("clear")
+const wordInputEl = document.getElementById("search-modal");
+const wordSearchButton = document.getElementById("searchBtn");
+const wordDefinition = document.getElementById("wordDefinition");
+const giphDisplayEl = document.getElementById("giphs");
+const searchModalEl = document.getElementById("searchModal")
+const recentSearchesEl = document.getElementById("recentSearches")
+const historyModalEl = document.getElementById("historyModal");
+const clearButtonEl = document.getElementById("clear")
 
 // State Variables
 var searchedWord = "";
-var definitionArray = "";
+var definitionArray = [];
 var giphArray = [];
 let meriamWebsterURL;
 let giphyURL;
@@ -38,18 +36,11 @@ function getGiphyURL() {
 function getAPI(requestUrl) {
   fetch(requestUrl)
     .then(function (response) {
-      if (response.status === 200) {
-        console.log("Yay")
-      } else {
-        console.log("Sad")
-      }
       return response.json();
     })
     .then(function (data) {
       if (requestUrl === meriamWebsterURL) {
         definitionArray = data[0].shortdef
-        console.log(definitionArray)
-        console.log()
         for (let i = 0; i < definitionArray.length; i++) {
           let definition = document.createElement("p");
           definition.textContent = definitionArray[i];
@@ -58,7 +49,6 @@ function getAPI(requestUrl) {
       }
       if (requestUrl === giphyURL) {
         giphArray = data.data;
-        console.log(giphArray)
         for (let i = 0; i < giphArray.length; i++) {
           let giph = document.createElement("iframe");
           giph.src = giphArray[i].embed_url;
@@ -68,6 +58,7 @@ function getAPI(requestUrl) {
     });
 }
 
+// Clears children from DOM
 function deleteResults(x) {
   if (x.firstChild) {
     while (x.firstChild) {
@@ -76,6 +67,7 @@ function deleteResults(x) {
   }
 }
 
+// Executes New Search
 function search() {
   deleteResults(giphDisplayEl)
   deleteResults(wordDefinition)
@@ -94,13 +86,13 @@ wordSearchButton.addEventListener("click", function (event) {
 recentSearchesEl.addEventListener("click", function (event) {
   event.preventDefault();
   if (event.target.dataset.test === "btn") {
-   searchedWord = event.target.textContent
-   search();
-   historyModalEl.classList.add("hidden");
-  }  
+    searchedWord = event.target.textContent
+    search();
+    historyModalEl.classList.add("hidden");
+  }
 });
 
-clearButtonEl.addEventListener("click", function(event) {
+clearButtonEl.addEventListener("click", function (event) {
   event.preventDefault();
   history = [];
   localStorage.removeItem("history");
@@ -121,8 +113,6 @@ openModalBtn.forEach(function (btn) {
 // Close Modal
 closeModalBtn.forEach(function (btn) {
   btn.onclick = function (event) {
-    console.log(btn);
-    
     event.target.parentNode.parentNode.classList.add("hidden");
     // overlay.classList.add("hidden");
   }
@@ -132,13 +122,11 @@ closeModalBtn.forEach(function (btn) {
 function appendHistory() {
   let j = false;
   for (let i = 0; i < history.length; i++) {
-    console.log("compared");
     if (searchedWord === history[i]) {
       j = true
     }
   }
   if (j === false) {
-    console.log("adding result");
     if (history.length >= 6) {
       history.shift();
     }
@@ -163,7 +151,7 @@ function renderSearchHistory() {
     var searchHistoryButton = document.createElement("button");
     searchHistoryButton.classList.add("btn");
     searchHistoryButton.style.margin = ".25rem";
-    searchHistoryButton.textContent = history[i]; 
+    searchHistoryButton.textContent = history[i];
     searchHistoryButton.dataset.test = "btn";
     recentSearchesEl.append(searchHistoryButton);
   }

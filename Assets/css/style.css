@@ -67,7 +67,6 @@ body {
   left: 0;
   padding: 0;
   position: fixed !important;
- 
 }
 
 .splash {
@@ -81,7 +80,6 @@ body {
   bottom: 0;
   right: 0;
   text-align: center;
-
 }
 
 /* This is the main heading that appears on the blue section */
@@ -286,8 +284,6 @@ input {
   flex-wrap: wrap;
 }
 
-
-
 iframe {
   border: none;
   margin: .75rem 0;
@@ -353,7 +349,6 @@ iframe {
     max-width: 78em;
     margin: 0 auto;
   }
-
 }
 
 /* End of Media Queries */
