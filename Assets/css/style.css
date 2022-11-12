@@ -62,7 +62,7 @@ body {
   overflow: hidden;
   /* The following styles are required for the "scroll-over" effect */
   width: 100%;
-  height: 35%;
+  height: 350px;
   top: 0;
   left: 0;
   padding: 0;
@@ -263,24 +263,34 @@ input {
 }
 
 #resultsContainer {
-  /* display: flex; */
-  /* flex-direction: column; */
+  display: flex;
+  flex-direction: column;
   align-items: center;
   border-top: solid lightseagreen;
-  /* padding: 0; */
   position: absolute;
-  /* top: 100px; */
-  bottom: 0;
+  top: 350px;
+  width: 90%;
 }
 
 #resultsContainer p {
-  margin-bottom: 1rem;
+  width: 90%;
+  margin: .75rem auto;
+}
+
+#giphs {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: space-around;
+  flex-wrap: wrap;
 }
 
 
 
 iframe {
   border: none;
+  margin: .75rem 0;
 }
 
 /* Media Queries */
@@ -320,6 +330,10 @@ iframe {
   /* We remove the border-separator assigned to .l-box-lrg */
   .l-box-lrg {
     border: none;
+  }
+
+  #resultsContainer {
+    top: 500px;
   }
 }
 
