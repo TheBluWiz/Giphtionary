@@ -1,7 +1,5 @@
 # Giphtionary
 
-<a href="https://TheBluWiz.github.io/Giphtionary/">Deployed Application Link</a>
-
 ## Description
 
 Where words meets giph! A vanilla JS app to check word definitions that displays complementary GIFs. 
@@ -14,17 +12,17 @@ Where words meets giph! A vanilla JS app to check word definitions that displays
 
 ## User Story
 
-As a student \
-I want to look up the definition of a word and use a GIPH to provide a visual example \
-So that I can gain a better understanding of different words 
+AS A student<br>
+I WANT to look up the definition of a word and use a GIPH to provide a visual example<br>
+So THAT I can gain a better understanding of different words.
 
 ## License
 
 Please refer to the LICENSE in the repo.
 
-## Working Application Screenshot
-TO DO!
-[Click here!](/* ./Images/project-screenshot.png */)
+## Deployed
+Find our site [here](https://TheBluWiz.github.io/Giphtionary/)!
+![site image](./Assets/Images/splash-page.png)
 
 ## Contact
 
