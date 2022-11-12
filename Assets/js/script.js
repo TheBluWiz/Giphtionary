@@ -11,6 +11,7 @@ let giphDisplayEl = document.getElementById("giphs");
 let searchModalEl = document.getElementById("searchModal")
 let recentSearchesEl = document.getElementById("recentSearches")
 let historyModalEl = document.getElementById("historyModal");
+let clearButtonEl = document.getElementById("clear")
 
 // State Variables
 var searchedWord = "";
@@ -98,6 +99,14 @@ recentSearchesEl.addEventListener("click", function (event) {
    historyModalEl.classList.add("hidden");
   }  
 });
+
+clearButtonEl.addEventListener("click", function(event) {
+  event.preventDefault();
+  history = [];
+  localStorage.removeItem("history");
+  getSearches();
+  historyModalEl.classList.add("hidden");
+})
 
 
 // Opens Modal
