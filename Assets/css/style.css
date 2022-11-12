@@ -277,6 +277,15 @@ input {
   margin: .75rem auto;
 }
 
+#giphs {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: space-around;
+  flex-wrap: wrap;
+}
+
 
 
 iframe {
