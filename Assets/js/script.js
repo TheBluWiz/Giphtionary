@@ -39,6 +39,7 @@ function getAPI(requestUrl) {
       return response.json();
     })
     .then(function (data) {
+      // Processes data based off API origin
       if (requestUrl === meriamWebsterURL) {
         definitionArray = data[0].shortdef
         for (let i = 0; i < definitionArray.length; i++) {
@@ -76,6 +77,7 @@ function search() {
   appendHistory(searchedWord)
 }
 
+// Performs search based on user input
 wordSearchButton.addEventListener("click", function (event) {
   event.preventDefault();
   searchedWord = wordInputEl.value
@@ -83,6 +85,7 @@ wordSearchButton.addEventListener("click", function (event) {
   searchModalEl.classList.add("hidden");
 });
 
+// Performs search from historical value
 recentSearchesEl.addEventListener("click", function (event) {
   event.preventDefault();
   if (event.target.dataset.test === "btn") {
@@ -92,6 +95,7 @@ recentSearchesEl.addEventListener("click", function (event) {
   }
 });
 
+// Clears search history
 clearButtonEl.addEventListener("click", function (event) {
   event.preventDefault();
   history = [];
@@ -144,6 +148,7 @@ function getSearches() {
   renderSearchHistory();
 };
 
+// adds buttons for previously search items
 function renderSearchHistory() {
   deleteResults(recentSearchesEl);
   wordInputEl.innerHTML = "";
@@ -157,4 +162,5 @@ function renderSearchHistory() {
   }
 }
 
+// Initializes page
 getSearches()
