@@ -130,7 +130,7 @@ function appendHistory() {
   }
   if (j === false) {
     console.log("adding result");
-    if (history.length >= 10) {
+    if (history.length >= 6) {
       history.shift();
     }
     history.push(searchedWord);
