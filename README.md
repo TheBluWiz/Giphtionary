@@ -2,7 +2,9 @@
 
 ## Description
 
-Where words meets giph! A vanilla JS app to check word definitions that displays complementary GIFs. 
+Where words meets giph! A vanilla JS app to check word definitions that displays complementary GIFs. We decided to create this app so that we can make learning new words more fun by also using gifs. By displaying a gif, we are are also providing people who are visual learners with a visual aid to help them better understand definitions.
+
+Through building this application we learned how to use the CSS framework, Pure.css. We also learned how to create modals using html, css, and javascript. Vanilla javascript was used to make API calls, local storage, and render our definitions and gifs to the page. 
 
 ## APIs/Frameworks
 - <a href="https://dictionaryapi.com/" >Merriam Webster API</a>
@@ -15,6 +17,14 @@ Where words meets giph! A vanilla JS app to check word definitions that displays
 AS A student<br>
 I WANT to look up the definition of a word and use a GIPH to provide a visual example<br>
 So THAT I can gain a better understanding of different words.
+
+## Credits
+
+These tutorials:
+
+<a href="https://youtu.be/Ifx85VUGQIY">Create Multiple Modals</a>
+
+<a href="https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/">Modals with JavaScript</a>
 
 ## License
 
