@@ -127,13 +127,13 @@ closeModalBtn.forEach(function (btn) {
 
 // Limits persistent storage to ten
 function appendHistory() {
-  let j = false;
+  let isUnique = true;
   for (let i = 0; i < history.length; i++) {
     if (searchedWord === history[i]) {
-      j = true
+      isUnique = false
     }
   }
-  if (j === false) {
+  if (isUnique === true) {
     if (history.length >= 6) {
       history.shift();
     }
