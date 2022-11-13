@@ -1,5 +1,5 @@
 // DOM Element Selectors
-const overlay = document.querySelectorAll(".overlay");
+const overlay = document.querySelector("#overlay");
 const openModalBtn = document.querySelectorAll(".btn-open");
 const closeModalBtn = document.querySelectorAll(".btn-close");
 const wordInputEl = document.getElementById("search-modal");
@@ -83,6 +83,7 @@ wordSearchButton.addEventListener("click", function (event) {
   searchedWord = wordInputEl.value
   search();
   searchModalEl.classList.add("hidden");
+  overlay.classList.remove("active");
 });
 
 // Performs search from historical value
@@ -92,6 +93,7 @@ recentSearchesEl.addEventListener("click", function (event) {
     searchedWord = event.target.textContent
     search();
     historyModalEl.classList.add("hidden");
+    overlay.classList.remove("active");
   }
 });
 
@@ -102,6 +104,7 @@ clearButtonEl.addEventListener("click", function (event) {
   localStorage.removeItem("history");
   getSearches();
   historyModalEl.classList.add("hidden");
+  overlay.classList.remove("active");
 })
 
 
@@ -110,7 +113,7 @@ openModalBtn.forEach(function (btn) {
   btn.onclick = function () {
     var modal = btn.getAttribute('data-modal');
     document.getElementById(modal).classList.remove("hidden");
-    // overlay.classList.remove("hidden");
+    overlay.classList.add("active");
   };
 });
 
@@ -118,19 +121,19 @@ openModalBtn.forEach(function (btn) {
 closeModalBtn.forEach(function (btn) {
   btn.onclick = function (event) {
     event.target.parentNode.parentNode.classList.add("hidden");
-    // overlay.classList.add("hidden");
+    overlay.classList.remove("active");
   }
 })
 
-// Limits persistent storage to ten
+// Requires search items to be unique and limits history to 6
 function appendHistory() {
-  let j = false;
+  let isUnique = true;
   for (let i = 0; i < history.length; i++) {
     if (searchedWord === history[i]) {
-      j = true
+      isUnique = false
     }
   }
-  if (j === false) {
+  if (isUnique === true) {
     if (history.length >= 6) {
       history.shift();
     }
