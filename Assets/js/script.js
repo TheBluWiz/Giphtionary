@@ -125,7 +125,7 @@ closeModalBtn.forEach(function (btn) {
   }
 })
 
-// Limits persistent storage to ten
+// Requires search items to be unique and limits history to 6
 function appendHistory() {
   let isUnique = true;
   for (let i = 0; i < history.length; i++) {
