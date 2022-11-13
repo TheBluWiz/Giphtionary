@@ -34,6 +34,15 @@ Please refer to the LICENSE in the repo.
 Find our site [here](https://TheBluWiz.github.io/Giphtionary/)!
 ![site image](./Assets/Images/splash-page.png)
 
+## Moving Forward
+
+Some future ideas we have for this application:
+ - Add Additional Breakpoints
+ - Do a version with Urban Dictionary
+ - Add a favorite button and store favorites locally
+ - Add copy and paste feature for gifs
+ - Create a quiz for words in search history
+
 ## Contact
 
 <a href="https://www.linkedin.com/in/jamey-wicklund-19673851/" >LinkedIn: Jamey Wicklund</a>
