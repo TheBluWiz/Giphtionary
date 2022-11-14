@@ -155,7 +155,8 @@ button {
   font-weight: 600;
 }
 
-.btn {
+.btn,
+.btn-clear {
   display: inline-block;
   padding: 0.8rem 1.4rem;
   font-weight: 700;
@@ -220,11 +221,8 @@ button {
   padding: 2px 16px;
 }
 
-iframe:hover {
-  box-shadow: inset 0px 0px 8px rgb(38, 241, 197), 0 0 15px rgb(21, 230, 150);
-}
-
-.btn-open:hover {
+iframe:hover,
+.btn:hover {
   box-shadow: inset 0px 0px 8px rgb(38, 241, 197), 0 0 15px rgb(21, 230, 150);
 }
 
