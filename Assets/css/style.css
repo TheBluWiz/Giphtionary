@@ -226,6 +226,10 @@ iframe:hover,
   box-shadow: inset 0px 0px 8px rgb(38, 241, 197), 0 0 15px rgb(21, 230, 150);
 }
 
+.btn-clear:hover {
+  box-shadow: inset  0 0 8px rgb(248, 252, 0), 0 0 8px rgb(248, 252, 0);
+}
+
 /* Add some padding inside the card container */
 .card-padding {
   margin-top: 10px;
